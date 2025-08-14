@@ -17,13 +17,15 @@ spec:
           image: mysql:8.0
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: my-secret-pass
+              value: mysecretpassword
             - name: MYSQL_DATABASE
               value: mydb
             - name: MYSQL_USER
-              value: root
+              value: myuser
             - name: MYSQL_PASSWORD
-              value: shuki
+              value: 1234
+            - name: MYSQL_TABLE
+              value: data
           ports:
             - containerPort: 3306
           volumeMounts:
