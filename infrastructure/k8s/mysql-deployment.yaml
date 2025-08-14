@@ -21,9 +21,9 @@ spec:
             - name: MYSQL_DATABASE
               value: mydb
             - name: MYSQL_USER
-              value: shukiDB
+              value: root
             - name: MYSQL_PASSWORD
-              value: shuki!
+              value: shuki
           ports:
             - containerPort: 3306
           volumeMounts:
