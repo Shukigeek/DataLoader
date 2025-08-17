@@ -15,19 +15,32 @@ spec:
       containers:
         - name: mysql
           image: mysql:8.0
-          env:
-            - name: "MYSQL_ROOT_PASSWORD"
-              value: "mysecretpassword"
-            - name: "MYSQL_DATABASE"
-              value: "mydb"
-            - name: "MYSQL_USER"
-              value: "myuser"
-            - name: "MYSQL_PASSWORD"
-              value: "1234"
-            - name: "MYSQL_TABLE"
-              value: "data"
           ports:
             - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql-root-password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql-database
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql-user
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql-password
+          command:
+            - "mysqld"
+            - "--default-authentication-plugin=mysql_native_password"
           volumeMounts:
             - name: mysql-storage
               mountPath: /var/lib/mysql

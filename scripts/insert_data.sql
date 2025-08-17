@@ -1,6 +1,9 @@
-INSERT INTO Data
-(FirstName, LastName)
-VALUES ('Ptahya','Menahcem'),
-('Jakob' ,'Bar-adon'),
-('Shachar','Levi'),
-('Shuki','Heftler')
+INSERT INTO data
+(first_name, last_name)
+VALUES
+('Aiko', 'Tanaka'),
+('Liam', 'O’Connor'),
+('Fatima', 'Al-Hassan'),
+('Diego', 'Martinez'),
+('Zuri', 'Okafor'),
+('Sofia', 'Rossi');
