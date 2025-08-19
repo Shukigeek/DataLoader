@@ -5,7 +5,7 @@ import os
 
 class Connection:
     def __init__(self):
-        self.host = "127.0.0.1"
+        self.host = os.getenv("MYSQL_HOST","mysql")
         self.user = os.getenv("MYSQL_USER")
         self.password = os.getenv("MYSQL_PASSWORD")
         self.database = os.getenv("MYSQL_DATABASE")

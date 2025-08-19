@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: data-loader
-          image: shuki120/data-loader
+          image: shuki120/data-loader:latest
           ports:
             - containerPort: 8000
           env:

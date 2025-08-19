@@ -1,3 +1,3 @@
 mysql.connector
 uvicorn
-fastapi
+fastapi~=0.116.1

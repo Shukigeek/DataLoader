@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from services.dataloader.data import GetData
+from data import GetData
 import os
 
 app = FastAPI()

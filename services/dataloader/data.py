@@ -1,5 +1,5 @@
-from services.dataloader.mysql_dal import Connection
-import os
+from mysql_dal import Connection
+
 
 class GetData:
     def __init__(self):
