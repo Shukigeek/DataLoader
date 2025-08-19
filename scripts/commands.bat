@@ -6,13 +6,17 @@ set SCRIPT_PATH=%~dp0
 echo Script folder: %SCRIPT_PATH%
 
 REM =========================
-REM Deploy MySQL
+REM Deploy MySQL (PVC + Service + Deployment)
 REM =========================
 echo ====================================
-echo Deploying MySQL...
+echo Deploying MySQL (PVC + Service + Deployment)...
 echo ====================================
+oc apply -f infrastructure/k8s/mysql-pvc.yaml
+echo MySQL PVC applied.
+oc apply -f infrastructure/k8s/mysql-service.yaml
+echo MySQL Service applied.
 oc apply -f infrastructure/k8s/mysql-deployment.yaml
-echo MySQL deployment applied.
+echo MySQL Deployment applied.
 echo.
 
 REM =========================
@@ -29,13 +33,15 @@ echo Docker image pushed.
 echo.
 
 REM =========================
-REM Deploy FastAPI (data-loader)
+REM Deploy FastAPI (Service + Deployment)
 REM =========================
 echo ====================================
 echo Deploying FastAPI (data-loader)...
 echo ====================================
+oc apply -f infrastructure/k8s/data-loader-service.yaml
+echo FastAPI Service applied.
 oc apply -f infrastructure/k8s/data-loader-deployment.yaml
-echo FastAPI deployment applied.
+echo FastAPI Deployment applied.
 echo.
 
 REM =========================
